@@ -15,7 +15,6 @@ const size = Dimensions.get('window').width / 2;
 
 const App = () => {
   const [data, setData] = useState([]);
-  const [page] = useState(1);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -27,7 +26,7 @@ const App = () => {
     };
 
     fetchUsers();
-  }, [page]);
+  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -39,7 +38,7 @@ const App = () => {
           renderItem={({item}) => (
             <View style={styles.item}>
               <Image
-                style={styles.itemImage}
+                style={styles.image}
                 source={{uri: item.picture.thumbnail}}
               />
               <View style={styles.itemText}>
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-  itemImage: {
+  image: {
     width: 35,
     height: 35,
     borderRadius: 50,
